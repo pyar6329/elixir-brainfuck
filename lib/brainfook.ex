@@ -43,4 +43,18 @@ defmodule Head do
         %{mem | prev: mem.prev ++ [head], cur: tail}
     end
   end
+
+  @doc ~S"""
+    iex> Head.prev(%Memory{prev: [1, 2, 3], cur: [4, 5, 6]})
+    %Memory{prev: [1, 2], cur: [3, 4, 5, 6]}
+
+    iex> Head.prev(%Memory{prev: [2, 3, 4], cur: [1]})
+    %Memory{prev: [2, 3], cur: [4, 1]}
+  """
+  def prev(mem) do
+    case Enum.reverse(mem.prev) do
+      [head | tail] ->
+        %{mem | prev: Enum.reverse(tail), cur: [head] ++ mem.cur}
+    end
+  end
 end
