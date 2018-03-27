@@ -36,7 +36,7 @@ defmodule Head do
   """
   def next(mem) do
     case mem.cur do
-      [head | []] ->
+      [head] ->
         %{mem | prev: mem.prev ++ [head], cur: [0]}
 
       [head | tail] ->
