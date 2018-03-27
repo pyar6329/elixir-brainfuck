@@ -32,6 +32,9 @@ defmodule Head do
     %Memory{prev: [1], cur: [2, 3]}
   """
   def next(mem) do
-    %Memory{prev: [1, 2, 3, 4], cur: [5, 6]}
+    case mem.cur do
+      [head | tail] ->
+        %Memory{prev: mem.prev ++ [head], cur: tail}
+    end
   end
 end
