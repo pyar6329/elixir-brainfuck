@@ -67,11 +67,28 @@ defmodule Head do
   @doc ~S"""
     iex> Head.inc(%Memory{cur: [4, 5, 6]})
     %Memory{cur: [5, 5, 6]}
+
+    iex> Head.inc(%Memory{cur: [1, 2, 3]})
+    %Memory{cur: [2, 2, 3]}
   """
   def inc(mem) do
     case mem.cur do
       [head | tail] ->
         %{mem | cur: [head + 1] ++ tail}
+    end
+  end
+
+  @doc ~S"""
+    iex> Head.dec(%Memory{cur: [4, 5, 6]})
+    %Memory{cur: [3, 5, 6]}
+
+    iex> Head.dec(%Memory{cur: [1, 2, 3]})
+    %Memory{cur: [0, 2, 3]}
+  """
+  def dec(mem) do
+    case mem.cur do
+      [head | tail] ->
+        %{mem | cur: [head - 1] ++ tail}
     end
   end
 end
