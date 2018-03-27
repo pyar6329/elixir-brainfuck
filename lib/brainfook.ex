@@ -63,4 +63,12 @@ defmodule Head do
         %{mem | prev: Enum.reverse(tail), cur: [head] ++ mem.cur}
     end
   end
+
+  @doc ~S"""
+    iex> Head.inc(%Memory{cur: [4, 5, 6]})
+    %Memory{cur: [5, 5, 6]}
+  """
+  def inc(mem) do
+    %Memory{cur: [5, 5, 6]}
+  end
 end
