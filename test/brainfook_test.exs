@@ -1,8 +1,14 @@
 defmodule BrainfookTest do
   use ExUnit.Case
   doctest Brainfook
+end
 
-  test "greets the world" do
-    assert Brainfook.hello() == :world
-  end
+defmodule MemoryTest do
+  use ExUnit.Case
+  doctest Memory
+end
+
+defmodule HeadTest do
+  use ExUnit.Case
+  doctest Head
 end
